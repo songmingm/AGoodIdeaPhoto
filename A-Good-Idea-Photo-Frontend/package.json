@@ -1,0 +1,33 @@
+{
+  "private": true,
+  "author": "mimangsong <mmsong@yeah.net>",
+  "scripts": {
+    "build": "max build",
+    "dev": "max dev",
+    "format": "prettier --cache --write .",
+    "postinstall": "max setup",
+    "setup": "max setup",
+    "start": "npm run dev"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,css,less}": [
+      "umi lint"
+    ]
+  },
+  "dependencies": {
+    "@ant-design/icons": "^4.8.0",
+    "@ant-design/pro-components": "^2.3.34",
+    "@umijs/max": "^4.0.32",
+    "antd": "5.0.0",
+    "antd-img-crop": "^4.5.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.25",
+    "@types/react-dom": "^18.0.9",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "prettier-plugin-organize-imports": "^2",
+    "prettier-plugin-packagejson": "^2",
+    "typescript": "^4.9.3"
+  }
+}

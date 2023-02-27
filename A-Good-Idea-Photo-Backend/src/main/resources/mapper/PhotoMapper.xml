@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.agoodidea.photoAlbum.mapper.PhotoMapper">
+
+    <!--分页查询查询图片-->
+    <select id="selectPhotosByAlbumId" resultType="com.agoodidea.photoAlbum.model.vo.PhotoVO">
+        select p.id,
+        p.thumb_name,
+        p.meta,
+        p.create_time,
+        u.username as createby,
+        u.avatar_url as createByAvatarUrl,
+        a.bucket_name
+        from photo p
+        left join user u on p.create_by = u.id
+        left join album a on p.album_id = a.id
+        <where>
+            p.album_id = #{param.albumId}
+            <if test="param.createBy !=null and param.createBy!=''">
+                and u.username like concat('%',#{param.createBy},'%')
+            </if>
+            <if test="param.createTime !=null">
+                and p.create_time >= #{param.createTime}
+            </if>
+        </where>
+        order by p.create_time desc
+    </select>
+</mapper>

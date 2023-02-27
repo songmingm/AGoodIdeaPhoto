@@ -1,0 +1,52 @@
+server:
+  port: 5777
+spring:
+  application:
+    name: AGoodIdea-PhotoAlbum
+  datasource:
+    username: mmsong
+    password: QWEASDZXC123!@#
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://101.43.217.193:3306/a_good_idea?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+
+  redis:
+    host: 101.43.217.193
+    port: 6379
+    password: QWEASDZXC123!@#$
+
+  rabbitmq:
+    port: 5672
+    host: 101.43.217.193
+    username: guest
+    password: guest
+
+  mail:
+    host: smtp.qq.com
+    username: 1299463902@qq.com
+    password: xphnptizgdidbacf
+    properties:
+      mail:
+        smtp:
+          ssl:
+            enable: true
+    default-encoding: UTF-8
+
+  jackson:
+    time-zone: GMT+8
+
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+  thymeleaf:
+    cache: false
+
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-field: deleteFlag
+      logic-not-delete-value: 0
+      logic-delete-value: 1

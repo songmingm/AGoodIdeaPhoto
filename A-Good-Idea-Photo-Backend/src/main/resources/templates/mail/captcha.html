@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>邮箱验证码 - A GOOD IDEA</title>
+    <style>
+        table {
+            width: 700px;
+            margin: 0 auto;
+        }
+
+        #top {
+            width: 700px;
+            border-bottom: 1px solid #ccc;
+            margin: 0 auto 30px;
+        }
+
+        #top table {
+            font: 12px Tahoma, Arial, 宋体;
+            height: 40px;
+        }
+
+        #content {
+            width: 680px;
+            padding: 0 10px;
+            margin: 0 auto;
+        }
+
+        #content_top {
+            line-height: 1.5;
+            font-size: 14px;
+            margin-bottom: 25px;
+            color: #4d4d4d;
+        }
+
+        #content_top strong {
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        #content_top strong span {
+            color: gray;
+            font-size: 16px;
+        }
+
+        #verificationCode {
+            color: gray;
+            font-size: 24px;
+        }
+
+        #content_bottom {
+            margin-bottom: 30px;
+        }
+
+        #content_bottom small {
+            display: block;
+            margin-bottom: 20px;
+            font-size: 12px;
+            color: #747474;
+        }
+
+        #bottom {
+            width: 700px;
+            margin: 0 auto;
+        }
+
+        #bottom div {
+            padding: 10px 10px 0;
+            border-top: 1px solid #ccc;
+            color: #747474;
+            margin-bottom: 20px;
+            line-height: 1.3em;
+            font-size: 12px;
+        }
+
+        #content_top strong span {
+            font-size: 18px;
+            color: #FE4F70;
+        }
+
+        #sign {
+            text-align: right;
+            font-size: 18px;
+            color: gray;
+            font-weight: bold;
+        }
+
+        #verificationCode {
+            height: 100px;
+            width: 680px;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        #verificationCode div {
+            height: 100px;
+            width: 680px;
+        }
+
+        .code {
+            color: gray;
+            margin-left: 10px;
+            height: 100px;
+            width: 100px;
+            resize: none;
+            font-size: 80px;
+            border: none;
+            text-align: center;
+            border-radius: 10px;
+        }
+    </style>
+    <link rel="shortcut icon" href="favicon.svg">
+</head>
+<body>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <div id="top">
+                <table>
+                    <tbody>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="content">
+                <div id="content_top">
+                    <strong>帅气且有眼光的你:</strong>
+                    <strong style="margin-left: 20px">
+                        邮箱<span th:text="${email}"></span>，本次操作的验证码在五分钟内有效：
+                    </strong>
+                    <div id="verificationCode">
+                        <button class="code" th:each="codeNum:${verifyCode}">
+                            <span th:text="${codeNum}"></span>
+                        </button>
+                    </div>
+                </div>
+                <div id="content_bottom">
+                    <small>
+                        注意：
+                        <br><span style="margin-left: 30px">此操作可能会修改您的密码、登录邮箱或绑定手机</span>
+                        <br><span style="margin-left: 30px">如非本人操作，请及时登录并修改密码以保证帐户安全</span>
+                    </small>
+                </div>
+            </div>
+            <div id="bottom">
+                <div>
+                    <p>此为系统邮件，请勿回复<br>
+                        请保管好您的邮箱，避免账号被他人盗用
+                    </p>
+                    <p id="sign">A GOOD IDEA</p>
+                    <p style="text-align: right">Create by Mimangsong</p>
+                    <p style="text-align: right">Email：mmsong@yeah.net</p>
+                    <p style="text-align: right"><span th:text="${sendTime}"></span></p>
+                </div>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
